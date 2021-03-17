@@ -1,0 +1,75 @@
+<div class="left-block">
+  <mat-card class="customer-card">
+    <div class="title-block">
+      <h3>Customer</h3>
+      <mat-label class="title-label">You can manage your customer's listing in the Delivery Locations tab.</mat-label>
+    </div>
+    <br>
+    <br>
+
+    <mat-card-content>
+      <form class="customer-form">
+        <div class="customer-name">
+          <div [style.padding-bottom.px]="4">Customer Name</div>
+          <input class="customer-input" type="text" [formControl]="customerName" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+              {{name}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+        <mat-label class="customer-label">for</mat-label>
+
+        <mat-select [formControl]="selectDate" class="select-date" (selectionChange)="selectTime($event)">
+          <mat-option value='all time'>all time</mat-option>
+          <mat-option value='now'>this week, &nbsp;{{week.start | date:"dd/MM"}} – {{week.end | date:"dd/MM"}}
+          </mat-option>
+          <mat-option value='next'> next week, &nbsp;{{nextWeek.start | date:"dd/MM"}} –
+            {{nextWeek.end | date:"dd/MM"}}</mat-option>
+        </mat-select>
+      </form>
+    </mat-card-content>
+    <br>
+
+    <div class="radio-title">Haulio Ref</div>
+    <mat-radio-group class="ref-kind" name="trip" [(ngModel)]="tripType" #trip="ngModel" (change)="choiceTrip($event)">
+      <mat-radio-button [value]="'round_trip'" class="ref-radiobtn">Round Trip</mat-radio-button>
+      <br>
+      <mat-radio-button [value]="'one_way'" class="ref-radiobtn">One Way</mat-radio-button>
+    </mat-radio-group>
+  </mat-card>
+
+  <mat-card class="graph-card" *ngIf="customerName.value && tripType">
+    <div class="title-block">
+      <h3 [ngClass]="tripType === 'one_way'? 'one-way':'round'">No. of Container(s) Arrival & Departure</h3>
+    </div>
+    <mat-card-content>
+      <div class="info-block">
+        <div class="graph-info" *ngFor="let item of graphInfo">
+          <div class="bkg-info" [style.background-color]=item.bgcolor></div>
+          <span class="label-info">{{item.text}}</span>
+        </div>
+      </div>
+      <br>
+      <div class="kendo-block">
+        <kendo-chart>
+          <kendo-chart-category-axis>
+            <kendo-chart-category-axis-item [categories]="categories" [baseUnit]="baseUnit">
+            </kendo-chart-category-axis-item>
+          </kendo-chart-category-axis>
+          <kendo-chart-series>
+            <kendo-chart-series-item *ngIf="tripType === 'round_trip'" type="line" color=#dc3545 [style]="style"
+              [data]="selectDate.value === 'next'? [10, 3, 0, 4, 6, 0, 1]:[10, 1, 10, 0, 0, 0, 0]">
+            </kendo-chart-series-item>
+            <kendo-chart-series-item *ngIf="tripType === 'round_trip'" type="line" color=#007bff [style]="style"
+              [data]="selectDate.value === 'next'? [3, 1, 0, 0, 7, 0, 0]:[0, 1, 2, 0, 0, 0, 0]">
+            </kendo-chart-series-item>
+            <kendo-chart-series-item type="line" color=#ffc107 [style]="style"
+              [data]="selectDate.value === 'next'?[8, 0, 4, 0, 2, 0, 0]:[10, 0, 0, 0, 2, 0, 0]">
+            </kendo-chart-series-item>
+          </kendo-chart-series>
+        </kendo-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

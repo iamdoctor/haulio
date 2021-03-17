@@ -1,0 +1,22 @@
+.header-container {
+  position: sticky;
+  top:0;
+  z-index: 999;
+  background-color: #ffffff;
+  height: 41px;
+
+  .logo-btn {
+    height: 35px;
+    cursor: pointer;
+    .header-logo {
+      width: 100px;
+    }
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .material-icons-outlined{
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,30 @@
+<mat-toolbar class="nav-bar">
+  <button mat-icon-button class="nav-btn">
+    <mat-icon>speed</mat-icon>
+    Dashboard
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="nav-btn" routerLink="/booking" routerLinkActive='active'>
+    <mat-icon style="transform: rotate(360deg)">local_shipping</mat-icon>
+    Bookings
+    <mat-icon style="color: rgba(0, 0, 0, .54)">arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" yPosition="below" class="menu-btn">
+    <button mat-menu-item> Drafts</button>
+    <button mat-menu-item>Posted</button>
+    <button mat-menu-item>Completed</button>
+  </mat-menu>
+
+  <button mat-icon-button class="nav-btn">
+    <mat-icon>apartment</mat-icon>
+    Delivery Locations
+  </button>
+  <button mat-icon-button class="nav-btn">
+    <mat-icon>store</mat-icon>
+    Partners
+  </button>
+  <button mat-icon-button class="nav-btn last-btn">
+    <mat-icon>settings</mat-icon>
+    Setting
+  </button>
+</mat-toolbar>

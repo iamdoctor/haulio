@@ -1,0 +1,115 @@
+.right-block {
+  .price-block {
+    padding: 16px;
+    margin-bottom: 20px;
+
+    .mat-expansion-panel-header,
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+
+    .mat-expansion-panel-header {
+      height: 33px;
+
+      .mat-expansion-panel-header-title {
+        margin-right: 0;
+      }
+
+      .expand-icon {
+        position: absolute;
+        margin-top: 5px;
+        right: 0;
+        font-size: 21px;
+        color: rgba(0, 0, 0, .54);
+      }
+
+      .openAnimate {
+        animation: inwards-open 225ms cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+      }
+
+      .closeAnimate {
+        animation: inwards-close 225ms cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+      }
+
+      @keyframes inwards-open {
+        0% {
+          transform: rotate(180deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @keyframes inwards-close {
+        0% {
+          transform: rotate(-135deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    .price-label,
+    .price {
+      display: inline-block;
+    }
+
+    .price-label {
+      width: 70%;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .price {
+      width: 30%;
+      text-align: center;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .editor-card {
+    .title-label {
+      font-size: 11px;
+    }
+
+    .ck-editor-cover {
+      word-break: break-all !important;
+
+      .cke_wysiwyg_div {
+        padding: 5px !important;
+        height: 100px !important;
+      }
+
+      .cke_button__strike,
+      .cke_button__superscript,
+      .cke_button__justifyblock {
+        display: none !important;
+      }
+    }
+
+    .cke_contents .cke_wysiwyg_div {
+      line-height: normal;
+    }
+
+    .check-section {
+      margin: 10px 0 0 5px;
+
+      .mat-checkbox-layout {
+        margin: 0;
+      }
+
+      .mat-checkbox-checked .mat-checkbox-background {
+        background-color: #28a745;
+      }
+    }
+
+  }
+
+}

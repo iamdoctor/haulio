@@ -1,0 +1,37 @@
+<div class="right-block">
+  <mat-expansion-panel #expansionPanel expanded="true" hideToggle="true" class="price-block">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h3>Pricing</h3>
+      </mat-panel-title>
+      <mat-icon class="expand-icon" [ngClass]="expansionPanel.expanded ? 'openAnimate' : 'closeAnimate'">{{
+        expansionPanel.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_up'
+    }}</mat-icon>
+    </mat-expansion-panel-header>
+    <div class="price-label">Grand Total</div>
+    <div class="price"> 0.00</div>
+  </mat-expansion-panel>
+
+  <mat-card class="editor-card">
+    <div class="title-block">
+      <h3>Contact</h3>
+      <br>
+      <mat-label class="title-label">
+        Haulio - All Hauliers on the platform
+      </mat-label>
+    </div>
+
+    <mat-card-content>
+      <ckeditor class="ck-editor-cover" [config]="CKE_CONFIG" debounce="300" name="box_body" #box_body="ngModel"
+        [(ngModel)]="boxBody">
+      </ckeditor>
+
+      <section class="check-section">
+        <mat-checkbox [disabled]="!boxBody" [(ngModel)]="box_checked" (change)="changeStatus($event)">
+          Job Status
+        </mat-checkbox>
+      </section>
+    </mat-card-content>
+
+  </mat-card>
+</div>

@@ -1,0 +1,29 @@
+.main-container {
+  width: 100%;
+  display: block;
+
+  @media (max-width: 1024px) {
+    overflow-x: auto;
+  }
+
+  .scroll-block {
+    margin: 0 20px 20px;
+
+    @media (max-width: 1024px) {
+      width: 1024px;
+    }
+
+    .left-container {
+      width: calc(100% - 400px);
+      margin-right: 20px;
+      display: inline-block;
+    }
+
+    .right-content {
+      width: 380px;
+      vertical-align: top;
+      display: inline-block;
+    }
+
+  }
+}

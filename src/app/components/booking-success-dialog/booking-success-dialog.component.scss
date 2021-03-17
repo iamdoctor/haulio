@@ -1,0 +1,52 @@
+.dialog-container {
+  .content-container {
+    border-bottom: 1px solid #e5e5e5e5;
+    padding-bottom: 30px;
+
+    img {
+      width: 300px;
+      height: 150px;
+
+      @media (max-width: 1024px) {
+        width: 272px;
+        height: 136px;
+      }
+    }
+
+    .info-title {
+      font-weight: 570;
+      font-size: 17px;
+      margin-top: 5px;
+      word-break: break-word;
+    }
+
+    .info-detail {
+      word-break: break-all;
+      font-size: 13px;
+    }
+
+  }
+
+  .action-btn-container {
+    margin-top: 15px;
+
+    .mat-raised-button {
+      outline: none;
+      border: none;
+      padding: 0 40px;
+      border-radius: 0;
+    }
+  }
+}
+
+.mat-dialog-container {
+  padding: 16px;
+}
+
+.mat-dialog-content {
+  padding: 0;
+}
+
+.success-pane {
+  max-width: 95vw !important;
+}
